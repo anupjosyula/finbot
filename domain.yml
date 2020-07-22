@@ -90,7 +90,7 @@ responses:
     attachment:
       type: image
       payload:
-        src: atmecslogo.jpg
+        src: helpneeded.jpg
   utter_thanks_for_the_details:
   - text: Thank you, What can I help you with?
   - text: Thanks for the details, how can I help you?
