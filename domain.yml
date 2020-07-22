@@ -1,0 +1,213 @@
+session_config:
+  session_expiration_time: 10
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- bye
+- canthelp
+- deny
+- greet
+- react_negative
+- react_positive
+- source_code
+- chitchat
+- thank
+- ask_whatspossible
+- chitchat/ask_ishuman
+- chitchat/telljoke
+- additionallinks
+- chitchat/ask_languagesbot
+- chitchat/nicetomeeyou
+- chitchat/handleinsult
+- chitchat/ask_isbot
+- chitchat/ask_wherefrom
+- chitchat/ask_builder
+- chitchat/ask_howdoing
+- chitchat/ask_whoisit
+- chitchat/ask_weather
+- chitchat/ask_howbuilt
+- chitchat/ask_howold
+- getuserdetails
+- getemployeedetails
+- weather
+- cities
+- fbp
+- attendance
+- operations
+- infrastructure
+- travelrealated
+- types_of_leave
+- typesofleave
+- holidaycalendar
+- hyderabad_calendar
+- bangalore_calendar
+- out_of_scope
+- ask_phonenumber
+- phone_number
+- sing_a_song
+- list_of_continents
+- list_of_resources
+- ask_remind_call:
+    triggers: action_set_reminder
+- EXTERNAL_reminder:
+    triggers: action_react_to_reminder
+entities:
+- name
+- language
+- location
+- empid
+- phone
+slots:
+  empid:
+    type: unfeaturized
+  location:
+    type: text
+  name:
+    type: text
+  phone:
+    type: unfeaturized
+responses:
+  utter_greet:
+  - text: Hey there, my name is Finbot.
+  - text: Hi, I'm Finbot!
+  - text: Hi! My name's Finbot.
+  utter_noworries:
+  - text: No worries!
+  - text: You're welcome!
+  - text: I'm happy to help.
+  utter_anything_else:
+  - text: "I have something more for you if you would like to explore about our organization.\n\
+      \ Here's the link for [HR berry] (https://www.hrberry.com/smarthr/index.php?q=cms&m=index&client=atmecs)\n\
+      \ Here's the link for [Aspire] (https://aspire.atmecs.online/login)"
+  utter_bye:
+  - text: Goodbye!
+  - text: Bye!
+  - text: Ciao!
+  - text: Bye, was nice talking to you!
+  - text: Bye bye!
+  utter_what_help:
+  - text: Ok, what can I help you with?
+    attachment:
+      type: image
+      payload:
+        src: atmecslogo.jpg
+  utter_thanks_for_the_details:
+  - text: Thank you, What can I help you with?
+  - text: Thanks for the details, how can I help you?
+  utter_thumbsup:
+  - text: 👍
+  - text: Okay.
+  - text: Got it.
+  utter_possibilities:
+  - text: You can ask me about your payroll related quieres
+  utter_react_negative:
+  - text: 😕
+  - text: 😞
+  - text: 😥
+  - text: 😢
+  utter_react_positive:
+  - text: 😄
+  - text: 😊
+  - text: 👏
+  - text: 😍
+  utter_canthelp:
+  - text: I'm sorry I didn't understand what you have mentioned
+  utter_nohelp:
+  - text: For now that's all I can do, so feel free to try it out. If you have any
+      suggestions for what I should learn, let me know!
+  utter_source_code:
+  - text: My code is not open source
+  utter_deny_accept:
+  - text: Is there anything else I can help you with?
+    buttons:
+    - title: Yes
+      payload: /ask_whatspossible
+    - title: No
+      payload: /deny
+  utter_what_possible:
+  - text: 'You can ask me following queries :'
+    buttons:
+    - title: Payroll/HR/Organisation related queries
+      payload: additionallinks
+    - title: I can tell a joke
+      payload: Can you tell a joke?
+    - title: I can tell you about the weather
+      payload: temperature today
+    - title: About me
+      payload: What is your name?
+  utter_capture_username:
+  - text: Please enter your name.
+  - text: Can I know your name Please?
+  utter_capture_empid:
+  - text: Hi {name}, Please enter your empid, to proceed further
+  utter_city:
+  - text: Which city you want to check for?
+  utter_temp:
+  - text: Today's temperature in {city} is {temp} degree Celcius.
+  utter_phonenumber:
+  - text: Please enter your phone number
+  utter_fbp:
+  - text: "Login to Aspire -> Human Resources -> Flexible benefit Plan Components\
+      \ Declaration \n Here is the link to [Aspire](https://aspire.atmecs.online/login)"
+  utter_attendance:
+  - text: "Login to HR Berry -> My Attendance. \nHere is the link to [HRBerry](https://www.hrberry.com/smarthr/index.php?q=cms&m=index&client=atmecs)"
+  utter_applyleave:
+  - text: "Login to HR Berry -> Leave. \nHere is the link to [HRBerry](https://www.hrberry.com/smarthr/index.php?q=cms&m=index&client=atmecs)"
+  utter_travelrelated:
+  - text: "For travel and Immigration related please reach out to \n raj.murgesan@atmecs.com"
+  utter_operations:
+  - text: "For Operations related please reach out to \n narsimha.mukkera@atmecs.com\n\
+      \ babu.krishnan@atmecs.com"
+  utter_infrastructure:
+  - text: "For Infrastructure related please reach out to \ngiridhar.obulesugari@atmecs.com\n\
+      To raise a ticket Navigate to Aspire -> HumanResources -> IT Help Desk \nHere\
+      \ is the link to [Aspire](https://aspire.atmecs.online/login)"
+  utter_holidaycalendar_city:
+  - text: here is the holiday calendar
+    attachment:
+      type: image
+      payload:
+        src: static/images/Hyderabad_holiday_Calendar.jpg
+  utter_song:
+  - text: here is a beautiful video for you to enjoy and learn
+    attachment:
+      type: video
+      payload:
+        src: https://www.youtube.com/embed/sVPYIRF9RCQ
+actions:
+- respond_chitchat
+- utter_greet
+- utter_noworries
+- utter_bye
+- utter_what_help
+- utter_thumbsup
+- utter_possibilities
+- utter_react_negative
+- utter_react_positive
+- utter_canthelp
+- utter_nohelp
+- utter_source_code
+- utter_what_possible
+- utter_deny_accept
+- action_hello_world
+- utter_capture_empid
+- utter_thanks_for_the_details
+- utter_anything_else
+- utter_capture_username
+- action_weather_api
+- utter_fbp
+- utter_attendance
+- utter_city
+- utter_temp
+- utter_travelrelated
+- utter_infrastructure
+- utter_operations
+- utter_applyleave
+- utter_holidaycalendar_city
+- action_type_of_leave
+- action_set_reminder
+- action_react_to_reminder
+- utter_phonenumber
+- utter_song
+- action_sample_graphql
+- action_agile_bot_graphql_resources_list
